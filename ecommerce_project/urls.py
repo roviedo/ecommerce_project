@@ -21,4 +21,4 @@ urlpatterns = [
     url('admin/', admin.site.urls),
 ]
 
-admin.site.site_header = 'Alexandra & Co. administration'
+admin.site.site_header = 'Raul & Co. administration'
