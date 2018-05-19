@@ -23,7 +23,7 @@ class Product(models.Model):
     
 
 class ProductSize(models.Model):
-		sku = models.CharField(max_length=200)
-		size = models.CharField(max_length=200)
-		model = models.ForeignKey(Product, on_delete=models.CASCADE)
+	sku = models.CharField(max_length=200)
+	size = models.CharField(max_length=200)
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
 

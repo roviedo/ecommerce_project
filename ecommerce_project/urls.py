@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import include, url
+from rest_framework import routers
+from  ecommerce_site import views
+
+router = routers.DefaultRouter()
+router.register(r'products', views.ProductViewSet)
+router.register(r'productsize', views.ProductSizeViewSet)
 
 urlpatterns = [
     url('ecommerce/', include('ecommerce_site.urls')),
     url('admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', include(router.urls, 'router_urls'))
 ]
 
 admin.site.site_header = 'Raul & Co. administration'
