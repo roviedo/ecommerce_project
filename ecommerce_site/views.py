@@ -3,10 +3,14 @@ from django.http import HttpResponse
 from .models import Product, ProductSize
 from rest_framework import viewsets
 from .serializers import ProductSerializer, ProductSizeSerializer
+from django.shortcuts import render
 
+
+# def index(request):
+#     return HttpResponse("Hello, world. You're at the polls index.")
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+      return render(request, 'index.html', context={"test": "hey there"})
 
 
 class ProductViewSet(viewsets.ModelViewSet):
