@@ -20,10 +20,17 @@ class Product(models.Model):
     pub_date = models.DateTimeField('date published')
     description = models.CharField(max_length=200)
     image_url = models.CharField(max_length=200)
+    image_string = models.TextField(blank=True)
+
+    def __unicode__(self):
+        return 'Product ' + self.description
     
 
 class ProductSize(models.Model):
-	sku = models.CharField(max_length=200)
-	size = models.CharField(max_length=200)
-	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    sku = models.CharField(max_length=200)
+    size = models.CharField(max_length=200)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __unicode__(self):
+        return self.product.description + ' size: ' +  self.size
 

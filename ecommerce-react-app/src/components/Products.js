@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Masonry from 'react-masonry-css';
+import './Products.css';
 
 
 class Products extends Component {
@@ -22,15 +24,37 @@ class Products extends Component {
 	}
 
   render() {
+    let products;
+    const breakpointColumnsObj = {
+      default: 3,
+      1100: 3,
+      700: 2,
+      500: 1
+    };
+
   	if (this.state.products) {
   		console.log('products', this.state.products);
-  	} else {
-  		console.log('nope');
-  	}
+      products = this.state.products.map((item, index) => {
+        return (
+          <div key={ index }>
+            <img src={ item.image_string } alt={ item.description } style={{width: "100%" }}/>
+            <div>{ item.price }</div>
+          </div>
+        );
+       })
+    } else {
+      console.log('nope');
+      products = null;
+    }
     return (
       
       <div className="products">
-      	Yoooooooo
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column">
+          { products }
+        </Masonry>
       </div>
     )
   }
