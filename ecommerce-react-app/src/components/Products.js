@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-css';
 import './Products.css';
+import Product from './Product';
+import ProductDetail from './ProductDetail';
 
 
 class Products extends Component {
@@ -14,12 +16,18 @@ class Products extends Component {
 	componentDidMount() {
 		fetch('http://localhost:8000/api/products/').then(
 			(response) => {
-				console.log('this response', response);
 				return response.json()
-		}).then((json) => {
-			this.setState({
-				products: json
-			})
+			}).then((json) => {
+				this.setState({
+					products: json,
+					productDetail: null
+				})
+			});
+	}
+
+	handleProductDetail = (product) => {
+		this.setState({
+			productDetail: product
 		})
 	}
 
@@ -32,20 +40,21 @@ class Products extends Component {
       500: 1
     };
 
-  	if (this.state.products) {
+    if (this.state.productDetail) {
+    	return (
+    		<ProductDetail product={this.state.productDetail} productDetail={this.handleProductDetail} />
+    	);
+    } else if (this.state.products) {
   		console.log('products', this.state.products);
       products = this.state.products.map((item, index) => {
         return (
-          <div key={ index }>
-            <img src={ item.image_string } alt={ item.description } style={{width: "100%" }}/>
-            <div>{ item.price }</div>
-          </div>
+          <Product key={ index } item={ item } index={ index } productDetail={this.handleProductDetail} />
         );
        })
     } else {
-      console.log('nope');
       products = null;
     }
+
     return (
       
       <div className="products">
