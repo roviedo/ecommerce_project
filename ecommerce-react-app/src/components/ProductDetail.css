@@ -9,14 +9,25 @@
 
 .product-detail-container {
 	position: relative;
+	height: 100%;
+	width: 100%;
+	display: flex;
 }
 
 .product-detail-container .image-container {
+	height: 50%;
+	width: 50%;
+}
+
+.product-detail-container .image-container img {
 	height: 100%;
 	width: 100%;
 }
 
-.product-detail-container .image-container img {
-	height: inherit;
-	width: inherit;
+.product-detail-container .product-details ul li {
+	margin-top: 10px;
+}
+
+.product-detail-container .product-details ul {
+	list-style-type: none;
 }

@@ -23,7 +23,6 @@ export default class Product extends Component {
 	}
 
 	handleClick = () => {
-		console.log('hey there I clicked');
 		this.props.productDetail(this.props.item);
 	}
 
@@ -37,7 +36,7 @@ export default class Product extends Component {
 				onClick={ this.handleClick }
 			>
         <img src={ this.props.item.image_string } alt={ this.props.item.description } style={{ width: "100%" }}/>
-        <div>{ this.props.item.price }</div>
+        <div>{ this.props.item.description }</div>
       </div>
 		);
 	}

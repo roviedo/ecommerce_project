@@ -45,7 +45,6 @@ class Products extends Component {
     		<ProductDetail product={this.state.productDetail} productDetail={this.handleProductDetail} />
     	);
     } else if (this.state.products) {
-  		console.log('products', this.state.products);
       products = this.state.products.map((item, index) => {
         return (
           <Product key={ index } item={ item } index={ index } productDetail={this.handleProductDetail} />

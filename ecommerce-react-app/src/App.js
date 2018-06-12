@@ -21,8 +21,8 @@ const Home = () => (
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div>
+      <div className='App'>
+        <div className='Header'>
           <ul>
             <li><a href='/'>Home</a></li>
             <li><a href='/products'>Products</a></li>
