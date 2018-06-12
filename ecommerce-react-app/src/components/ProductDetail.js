@@ -11,7 +11,7 @@ class ProductDetail extends Component {
     return (
       
       <div className='product-detail-container'>
-        <div>
+        <div className='image-container'>
         	<img src={ this.props.product.image_string } alt={ this.props.product.description } />
         </div>
         <div>hi</div>

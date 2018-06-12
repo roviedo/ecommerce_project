@@ -6,3 +6,17 @@
   width: 3rem;
   height: 3rem;
 }
+
+.product-detail-container {
+	position: relative;
+}
+
+.product-detail-container .image-container {
+	height: 100%;
+	width: 100%;
+}
+
+.product-detail-container .image-container img {
+	height: inherit;
+	width: inherit;
+}
