@@ -9,6 +9,8 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ProductSizeSerializer(serializers.HyperlinkedModelSerializer):
+    product = ProductSerializer()
+
     class Meta:
         model = ProductSize
         fields = ('sku', 'size', 'product')
